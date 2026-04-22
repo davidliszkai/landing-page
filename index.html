@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dávid Liszkai – Software Tester</title>
+  <meta name="description" content="Software tester and acting test manager with 4+ years across banking and enterprise systems — hands-on testing, release coordination, regression strategy." />
+  <meta name="author" content="Dávid Liszkai" />
+  <meta name="theme-color" content="#0a0d12" />
+
+  <!-- Canonical URL — update this to match your live domain -->
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph (LinkedIn, Facebook, iMessage, Slack, email previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:title" content="Dávid Liszkai – Software Tester &amp; Test Manager" />
+  <meta property="og:description" content="Software tester and acting test manager with 4+ years across banking and enterprise systems — hands-on testing, release coordination, regression strategy." />
+  <meta property="og:image" content="https://yourdomain.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dávid Liszkai – Software Tester &amp; Test Manager" />
+  <meta name="twitter:description" content="Software tester and acting test manager with 4+ years in banking and enterprise testing." />
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.png" />
+
+  <!-- Inline SVG favicon — matches the site's terminal-card aesthetic -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="%230a0d12"/><rect x="4" y="4" width="24" height="24" rx="4" fill="none" stroke="%23263240" stroke-width="1"/><text x="16" y="21" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="%237fd6ff" text-anchor="middle" letter-spacing="-0.5">DL</text></svg>' />
+  <link rel="apple-touch-icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><rect width="180" height="180" rx="32" fill="%230a0d12"/><text x="90" y="118" font-family="system-ui,sans-serif" font-size="78" font-weight="700" fill="%237fd6ff" text-anchor="middle" letter-spacing="-3">DL</text></svg>' />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-hero: clamp(3.5rem,   1rem    + 7vw,    7rem);
+
+      --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem;
+      --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem;    --space-10:2.5rem;  --space-12:3rem;
+      --space-16:4rem;    --space-20:5rem;    --space-24:6rem;
+
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+      --radius-xl: 1rem;     --radius-2xl:1.5rem; --radius-full: 9999px;
+
+      --font-body: 'Ubuntu', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      --content: 960px;
+      --ease: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+      --bg: #0a0d12;
+      --surface: #11161d;
+      --surface2: #151c24;
+      --surface3: #1a222c;
+      --border: #263240;
+      --border2: #344557;
+      --text: #eef3f8;
+      --muted: #8f9cac;
+      --accent: #7fd6ff;
+      --accent2: #b7e8ff;
+      --accent-bg: rgba(127,214,255,0.10);
+      --accent-border: rgba(127,214,255,0.24);
+      --accent-glow: rgba(127,214,255,0.08);
+      --accent-glow-strong: rgba(127,214,255,0.14);
+      --shadow-sm: 0 6px 18px rgba(0,0,0,0.24);
+      --shadow-md: 0 18px 44px rgba(0,0,0,0.34);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-font-smoothing: antialiased; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(127,214,255,0.10), transparent 24%),
+        radial-gradient(circle at 84% 8%, rgba(183,232,255,0.05), transparent 18%),
+        linear-gradient(180deg, #11161d 0%, #0a0d12 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: var(--content); margin-inline: auto; padding-inline: var(--space-6); }
+    section { padding-block: clamp(var(--space-16), 8vw, var(--space-24)); }
+    .divider { border: none; border-top: 1px solid rgba(127,214,255,0.18); max-width: var(--content); margin-inline: auto; }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .eyebrow::after { content:''; flex:1; height:1px; background:var(--border); max-width:60px; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-3) var(--space-6); border-radius: var(--radius-full);
+      font-size: var(--text-sm); font-weight: 600;
+      transition: all var(--ease); cursor: pointer; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: #0a0d12; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(127,214,255,0.25); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px var(--space-6) var(--space-16);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 700px 500px at 50% -100px, var(--accent-glow-strong) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at 80% 80%, var(--accent-glow) 0%, transparent 60%);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+      margin-bottom: var(--space-8);
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
+    .hero-greeting { font-size: var(--text-xl); font-weight: 300; color: var(--muted); margin-bottom: var(--space-1); }
+    .hero h1 {
+      font-size: var(--text-hero); font-weight: 800;
+      letter-spacing: -0.04em; line-height: 0.92;
+      margin-bottom: var(--space-6);
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-desc {
+      font-family: var(--font-mono); font-size: var(--text-sm);
+      color: var(--muted); line-height: 1.8;
+      max-width: 520px; margin-inline: auto; margin-bottom: var(--space-10);
+    }
+    .hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 240px 1fr; gap: var(--space-16); align-items: start; }
+
+    /* Terminal card — whoami-style identity block */
+    .terminal-card {
+      background: #0d1218;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: sticky; top: 100px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--ease), transform var(--ease);
+    }
+    .terminal-card:hover { border-color: var(--accent-border); transform: translateY(-2px); }
+    .terminal-head {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 12px;
+      background: #151c24;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .terminal-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #2a3440;
+    }
+    .terminal-dot.red { background: #ff5f57; }
+    .terminal-dot.yellow { background: #febc2e; }
+    .terminal-dot.green { background: #28c840; }
+    .terminal-title {
+      flex: 1; text-align: center;
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.05em;
+      margin-right: 36px;
+    }
+    .terminal-body {
+      flex: 1;
+      padding: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.7;
+      color: var(--text);
+      overflow: hidden;
+    }
+    .term-line { display: flex; gap: 6px; }
+    .term-prompt { color: var(--accent); flex-shrink: 0; }
+    .term-cmd { color: var(--text); }
+    .term-key { color: var(--muted); }
+    .term-val { color: var(--text); }
+    .term-val em { font-style: normal; color: var(--accent); }
+    .term-spacer { height: 8px; }
+    .term-cursor {
+      display: inline-block; width: 7px; height: 12px;
+      background: var(--accent);
+      vertical-align: -2px;
+      animation: blink 1s steps(2) infinite;
+      margin-left: 2px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .about-body { display: flex; flex-direction: column; gap: var(--space-5); }
+    .about-h2-large {
+      font-size: var(--text-2xl); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: var(--space-2);
+    }
+    .about-h2-large em { font-style: normal; color: var(--accent); }
+    .about-desc {
+      font-size: var(--text-lg); font-weight: 300;
+      color: var(--muted); line-height: 1.75; max-width: 58ch;
+    }
+    .about-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+    .about-tag {
+      font-family: var(--font-mono); font-size: var(--text-xs);
+      color: var(--text); background: rgba(255,255,255,0.025); border: 1px solid var(--border2); box-shadow: inset 0 0 0 1px rgba(127,214,255,0.05);
+      padding: var(--space-2) var(--space-3); border-radius: var(--radius-full);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 3px; }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: var(--space-8);
+      transition: border-color var(--ease), background var(--ease), box-shadow var(--ease);
+    }
+    .exp-card:hover { border-color: var(--accent-border); background: var(--surface2); box-shadow: var(--shadow-sm); }
+    .exp-co { font-size: var(--text-xs); color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2); }
+    .exp-role { font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.015em; margin-bottom: var(--space-4); line-height: 1.2; }
+    .exp-body { font-size: var(--text-base); color: var(--muted); line-height: 1.8; max-width: 65ch; }
+    .exp-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
+    .chip {
+      font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted);
+      background: linear-gradient(180deg, #1d2732, #141b23); border: 1px solid var(--border2);
+      padding: var(--space-1) var(--space-3); border-radius: var(--radius-md);
+    }
+
+    /* ── PROJECTS ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-5);
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    .proj-card:hover {
+      border-color: var(--accent-border);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .proj-shot {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, var(--surface2) 0%, var(--surface3) 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .proj-shot img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .proj-shot-placeholder {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+    }
+    .proj-shot-placeholder svg { opacity: 0.3; }
+    .proj-body {
+      padding: var(--space-6);
+      display: flex; flex-direction: column; gap: var(--space-3);
+      flex: 1;
+    }
+    .proj-header {
+      display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3);
+    }
+    .proj-name {
+      font-size: var(--text-lg); font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .proj-year {
+      font-family: var(--font-mono); font-size: var(--text-xs);
+      color: var(--muted); letter-spacing: 0.08em;
+    }
+    .proj-tagline {
+      font-size: var(--text-sm); color: var(--accent);
+      font-weight: 500;
+    }
+    .proj-desc {
+      font-size: var(--text-sm); color: var(--muted);
+      line-height: 1.7; flex: 1;
+    }
+    .proj-chips {
+      display: flex; flex-wrap: wrap; gap: var(--space-2);
+      margin-top: var(--space-1);
+    }
+    .proj-links {
+      display: flex; gap: var(--space-4); margin-top: var(--space-3);
+      padding-top: var(--space-4); border-top: 1px solid var(--border);
+    }
+    .proj-link {
+      font-family: var(--font-mono); font-size: var(--text-xs);
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: color var(--ease);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .proj-link:hover { color: var(--accent); }
+    .proj-link--muted {
+      color: var(--muted); opacity: 0.55;
+      cursor: default;
+    }
+    .proj-link--muted:hover { color: var(--muted); }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: var(--space-6);
+      transition: border-color var(--ease);
+    }
+    .skill-card:hover { border-color: var(--border2); }
+    .skill-cat { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-4); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .skill-tags span {
+      font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted);
+      background: linear-gradient(180deg, #1d2732, #141b23); border: 1px solid var(--border2);
+      padding: var(--space-1) var(--space-3); border-radius: var(--radius-md);
+    }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-2xl); padding: clamp(var(--space-10), 6vw, var(--space-20));
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .contact-box::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--accent-glow-strong) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .contact-box h2 { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; margin-bottom: var(--space-3); position: relative; z-index: 1; }
+    .contact-box h2 em { font-style: normal; color: var(--accent); }
+    .contact-box p { color: var(--muted); font-size: var(--text-base); margin-bottom: var(--space-8); position: relative; z-index: 1; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-3); position: relative; z-index: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(127,214,255,0.18);
+      padding: var(--space-6);
+      max-width: var(--content); margin-inline: auto;
+      display: flex; justify-content: center; align-items: center;
+      font-size: var(--text-xs); color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: clamp(3rem, 14vw, 5rem); }
+      .about-grid { grid-template-columns: 1fr; }
+      .terminal-card { aspect-ratio: auto; max-width: 380px; position: static; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: var(--space-2); text-align: center; }
+    }
+
+    /* ── NAV PILL ── */
+    .nav-pill {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: var(--space-8);
+    }
+    .nav-pill-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      background: rgba(17, 22, 29, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: var(--space-1) var(--space-2);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-pill-inner a {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+      padding: 7px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-pill-inner a:hover { color: var(--text); background: var(--surface2); }
+    .nav-pill-inner a.nav-cta {
+      font-weight: 600;
+      background: var(--accent);
+      color: #0a0d12;
+      padding: 7px 18px;
+    }
+    .nav-pill-inner a.nav-cta:hover { background: var(--accent2); }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="nav-pill">
+      <div class="nav-pill-inner">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </div>
+    <div class="hero-badge"><div class="badge-dot"></div>Open to test manager roles</div>
+    <div class="hero-greeting">Hey,</div>
+    <h1>I'm <em>Dávid</em><br>Liszkai</h1>
+    <p class="hero-desc">
+      Software tester and acting test manager with 4+ years across banking and
+      enterprise systems — from hands-on API and backend testing to release
+      coordination and regression strategy.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:liszkai_david@icloud.com" class="btn btn-primary">Get in touch ↗</a>
+      <a href="/david-liszkai-cv.pdf" download class="btn btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+      <a href="https://www.linkedin.com/in/david-liszkai/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow">About me</div>
+    <div class="about-grid">
+      <!-- TERMINAL CARD -->
+      <div class="terminal-card">
+        <div class="terminal-head">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <div class="terminal-title">~/liszkai — zsh</div>
+        </div>
+        <div class="terminal-body">
+          <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">whoami</span></div>
+          <div class="term-line"><span class="term-val">dávid liszkai</span></div>
+          <div class="term-spacer"></div>
+          <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">cat role.txt</span></div>
+          <div class="term-line"><span class="term-key">title:</span><span class="term-val">software tester</span></div>
+          <div class="term-line"><span class="term-key">doing:</span><span class="term-val">acting test manager</span></div>
+          <div class="term-line"><span class="term-key">focus:</span><span class="term-val">test execution · regression strategy</span></div>
+          <div class="term-line"><span class="term-key">&nbsp;</span><span class="term-val">release readiness · risk reporting</span></div>
+          <div class="term-line"><span class="term-key">domain:</span><span class="term-val"><em>banking</em> · card systems</span></div>
+          <div class="term-spacer"></div>
+          <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">info</span></div>
+          <div class="term-line"><span class="term-key">exp:</span><span class="term-val"><em>4+</em> years</span></div>
+          <div class="term-line"><span class="term-key">loc:</span><span class="term-val">budapest, hu</span></div>
+          <div class="term-spacer"></div>
+          <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">status</span></div>
+          <div class="term-line"><span class="term-val"><em>● open to test coordinator / test manager roles</em></span></div>
+          <div class="term-spacer"></div>
+          <div class="term-line"><span class="term-prompt">$</span><span class="term-cursor"></span></div>
+        </div>
+      </div>
+      <div class="about-body">
+        <h2 class="about-h2-large">Pragmatic tester,<br><em>quality-first</em></h2>
+        <p class="about-desc">
+          At OTP Bank I lead credit card testing within the squad and stepped into
+          acting test manager responsibilities during a large-scale card system
+          replacement — serving as the main point of contact between architects,
+          product owners, business analysts, and testers.
+        </p>
+        <p class="about-desc">
+          Underneath the coordination, I stay hands-on: end-to-end, API, UI, and
+          backend testing across complex systems. I think good testing should
+          support release decisions, not just tick boxes.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">Banking &amp; Card Systems</span>
+          <span class="about-tag">REST/SOAP API Testing</span>
+          <span class="about-tag">Agile / Scrum</span>
+          <span class="about-tag">Test Management</span>
+          <span class="about-tag">CI/CD Pipelines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow">Experience</div>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-co">OTP Bank</div>
+        <div class="exp-role">Software Tester | Acting Test Manager</div>
+        <p class="exp-body">
+          At OTP Bank I work on a bank card back-office system replacement project, testing card lifecycle processes across multiple go-live phases, including issuance, activation, status changes, renewals, and replacements. I also took on coordination responsibilities: task allocation, execution tracking, and risk reporting. I kept communication going between architects, product owners, business analysts, and testers. On the technical side I work with API testing, PL/SQL data validation, JMeter load testing, and messaging system validation using RabbitMQ and Kafka.
+        </p>
+        <div class="exp-chips">
+          <span class="chip">Xray</span><span class="chip">Jira</span><span class="chip">PL/SQL</span>
+          <span class="chip">JMeter</span><span class="chip">Postman</span><span class="chip">REST/SOAP</span>
+          <span class="chip">RabbitMQ</span><span class="chip">Kafka</span>
+          <span class="chip">Test Management</span><span class="chip">Regression Strategy</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-co">Kinsta</div>
+        <div class="exp-role">Quality Assurance Associate</div>
+        <p class="exp-body">
+          Worked on release testing for Kinsta's platform and the MyKinsta redesign. I covered regression, smoke, acceptance, and UI testing, including GraphQL checks in Apollo Studio. I also handled release-gate work, bug triage, and Docker-based test environments for the team.
+        </p>
+        <div class="exp-chips">
+          <span class="chip">Apollo Studio</span><span class="chip">GraphQL</span><span class="chip">Docker</span>
+          <span class="chip">GitHub</span><span class="chip">Confluence</span><span class="chip">Jira</span>
+          <span class="chip">Release Gate</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-co">BioSec Group</div>
+        <div class="exp-role">Software Tester</div>
+        <p class="exp-body">
+          Tested biometric and physical security systems on-site and in customer environments. I wrote and maintained test cases, tracked bugs, and documented findings. The work involved regular contact with both developers and customers during testing.
+        </p>
+        <div class="exp-chips">
+          <span class="chip">TestLink</span><span class="chip">Confluence</span><span class="chip">Jira</span>
+          <span class="chip">On-site Testing</span><span class="chip">E2E</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-co">TMX Mobile Solution</div>
+        <div class="exp-role">Tester</div>
+        <p class="exp-body">
+          Did manual testing and application support for the Vodafone Service System. I investigated tickets, checked issues in MySQL, and helped with functional testing and documentation.
+        </p>
+        <div class="exp-chips">
+          <span class="chip">MySQL</span><span class="chip">Manual Testing</span><span class="chip">IT Support</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow">Side projects</div>
+    <div style="margin-bottom: var(--space-10); max-width: 58ch;">
+      <h2 class="about-h2-large" style="margin-bottom: var(--space-4);">Built to <em>learn</em>,<br>tested to <em>ship</em></h2>
+      <p class="about-desc" style="font-size: var(--text-base);">
+        Small web apps I built on the side to practice the full modern workflow —
+        from design and deploy to the parts I care about most: writing tests,
+        catching regressions, and shipping something I'd actually trust.
+      </p>
+    </div>
+    <div class="proj-grid">
+
+      <!-- PROJECT 1 — Family recipe collector -->
+      <div class="proj-card">
+        <div class="proj-shot">
+          <img src="assets/projects/recipe-collector-index.png" alt="Family recipe collector — index page with category-filtered recipe cards" />
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div class="proj-name">Family recipe collector</div>
+            <div class="proj-year">2025</div>
+          </div>
+          <div class="proj-tagline">A Jamstack recipe vault for the family</div>
+          <p class="proj-desc">
+            Small Jamstack side project built on Eleventy, Netlify Functions, and the GitHub API.
+            The add-recipe form commits new recipes as Markdown files directly to the repo,
+            which triggers a rebuild. Used to practice deployment workflows, form handling,
+            and shipping to production on a real CI/CD pipeline.
+          </p>
+          <div class="proj-chips">
+            <span class="chip">Eleventy</span><span class="chip">Nunjucks</span>
+            <span class="chip">Netlify</span><span class="chip">Serverless</span>
+            <span class="chip">GitHub API</span><span class="chip">GitHub Actions</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/davidliszkai/liszieszik-eleventy" target="_blank" rel="noopener" class="proj-link">GitHub ↗</a>
+            <span class="proj-link proj-link--muted">Live demo soon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 — TestSuite Me -->
+      <div class="proj-card">
+        <div class="proj-shot">
+          <img src="assets/projects/testsuite-me.png" alt="TestSuite Me — interactive resume builder with live preview, QA presets, and PDF export" />
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div class="proj-name">TestSuite Me</div>
+            <div class="proj-year">2026</div>
+          </div>
+          <div class="proj-tagline">Interactive resume builder for QA professionals</div>
+          <p class="proj-desc">
+            AI-assisted web app that generates ATS-friendly resumes with QA-specific presets
+            (manual tester, automation, test manager). Server-side PDF export via Playwright,
+            DeepL translation for HU/EN versions, and full JSON state save/load. I drove
+            requirements, prompt-based iteration, QA validation, and deployment prep.
+          </p>
+          <div class="proj-chips">
+            <span class="chip">React</span><span class="chip">TypeScript</span>
+            <span class="chip">Express</span><span class="chip">Playwright</span>
+            <span class="chip">DeepL API</span><span class="chip">Docker</span>
+            <span class="chip">Railway</span>
+          </div>
+          <div class="proj-links">
+            <span class="proj-link proj-link--muted">Live demo soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">Testing &amp; QA</div>
+        <div class="skill-tags">
+          <span>E2E testing</span><span>API testing</span><span>UI testing</span>
+          <span>Backend testing</span><span>Regression strategy</span><span>Test design</span>
+          <span>Release readiness</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Tools &amp; Test Management</div>
+        <div class="skill-tags">
+          <span>Xray</span><span>Jira</span><span>Confluence</span><span>TestLink</span>
+          <span>Insomnia</span><span>Postman</span><span>SoapUI</span><span>Apollo Studio</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Automation &amp; Engineering</div>
+        <div class="skill-tags">
+          <span>Playwright</span><span>CI pipeline support</span><span>Docker</span>
+          <span>GitHub</span><span>PL/SQL</span><span>MySQL</span><span>JMeter</span>
+          <span>RabbitMQ</span><span>Kafka</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Coordination &amp; Delivery</div>
+        <div class="skill-tags">
+          <span>Release readiness</span><span>Risk reporting</span>
+          <span>Stakeholder communication</span><span>Cross-functional coordination</span>
+          <span>Bug triage</span><span>Test planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="eyebrow" style="justify-content:center;">Get in touch</div>
+      <h2>Let's work<br><em>together</em></h2>
+      <p>Open to test coordinator and test manager roles — feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:liszkai_david@icloud.com" class="btn btn-primary">liszkai_david@icloud.com ↗</a>
+        <a href="https://www.linkedin.com/in/david-liszkai-dvdlszk/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Dávid Liszkai</span>
+</footer>
+
+</body>
+</html>
