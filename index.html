@@ -262,6 +262,17 @@
     .exp-card:hover { border-color: var(--accent-border); background: var(--surface2); box-shadow: var(--shadow-sm); }
     .exp-co { font-size: var(--text-xs); color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2); }
     .exp-role { font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.015em; margin-bottom: var(--space-4); line-height: 1.2; }
+    .exp-roles { margin-bottom: var(--space-4); }
+    .exp-role-row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); padding: 6px 0; }
+    .exp-role-row + .exp-role-row { border-top: 1px solid var(--border); }
+    .exp-role-current .exp-role-title { font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); }
+    .exp-role-past .exp-role-title { font-size: var(--text-base); font-weight: 600; color: var(--muted); line-height: 1.2; }
+    .exp-role-title-wrap { display: flex; align-items: center; gap: var(--space-2); }
+    .exp-role-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .exp-role-current .exp-role-dot { background: var(--accent); box-shadow: 0 0 8px var(--accent-glow-strong); }
+    .exp-role-past .exp-role-dot { background: var(--muted); opacity: 0.5; }
+    .exp-role-date { font-size: var(--text-xs); color: var(--muted); font-family: var(--font-mono); white-space: nowrap; letter-spacing: 0.03em; }
+    .exp-role-current .exp-role-date { color: var(--accent); }
     .exp-body { font-size: var(--text-base); color: var(--muted); line-height: 1.8; max-width: 65ch; }
     .exp-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
     .chip {
@@ -555,7 +566,22 @@
 
       <div class="exp-card">
         <div class="exp-co">OTP Bank</div>
-        <div class="exp-role">Test Manager | ex-Software Tester</div>
+        <div class="exp-roles">
+          <div class="exp-role-row exp-role-current">
+            <div class="exp-role-title-wrap">
+              <span class="exp-role-dot"></span>
+              <span class="exp-role-title">Test Manager</span>
+            </div>
+            <span class="exp-role-date">2026 –</span>
+          </div>
+          <div class="exp-role-row exp-role-past">
+            <div class="exp-role-title-wrap">
+              <span class="exp-role-dot"></span>
+              <span class="exp-role-title">Software Tester</span>
+            </div>
+            <span class="exp-role-date">2024 – 2026</span>
+          </div>
+        </div>
         <p class="exp-body">
           At OTP Bank I work on a bank card back-office system replacement project, testing card lifecycle processes across multiple go-live phases, including issuance, activation, status changes, renewals, and replacements. I also took on coordination responsibilities: task allocation, execution tracking, and risk reporting. I kept communication going between architects, product owners, business analysts, and testers. On the technical side I work with API testing, PL/SQL data validation, JMeter load testing, and messaging system validation using RabbitMQ and Kafka.
         </p>
