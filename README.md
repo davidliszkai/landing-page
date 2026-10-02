@@ -1,9 +1,9 @@
 # liszkai-landing
 
-Personal landing page for Dávid Liszkai — test manager with hands-on software testing roots.
+Personal landing page for Dávid Liszkai, test manager at OTP Bank.
 
 CV-complement page that sits alongside the downloadable PDF resume. Static
-single-file HTML site: no build step, no framework — HTML, CSS, and a little
+single-file HTML site: no build step, no framework. HTML, CSS, and a little
 inline SVG.
 
 ## Structure
@@ -13,7 +13,7 @@ inline SVG.
 ├── index.html                  # the whole page
 ├── liszkai-david-en-cv.pdf     # downloadable CV (generated from cv/cv.html)
 ├── cv/
-│   ├── cv.html                 # CV source — edit this, then re-export the PDF
+│   ├── cv.html                 # CV source: edit this, then re-export the PDF
 │   └── fonts/                  # fonts used by cv.html
 └── assets/
     ├── og-image.jpg            # social preview image (1200×630)
@@ -39,6 +39,6 @@ automatic redeploy.
 ## Notes
 
 - Fonts are loaded from Google Fonts (Ubuntu 300/400/500/700, IBM Plex Mono 400/500/600).
-  Only use weights that are loaded — anything else gets synthesised by the browser.
-- Favicon is an inline SVG data URI in the `<head>` — no separate file.
+  Only use weights that are loaded, anything else gets synthesised by the browser.
+- Favicon is an inline SVG data URI in the `<head>`, no separate file.
 - Theme: dark, with a cyan accent (`#7fd6ff`). All colours live as tokens in `:root`.
