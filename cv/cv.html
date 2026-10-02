@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Dávid Liszkai – CV</title>
+<!--
+  CV source. Export: Chrome → Print → Save as PDF, A4, margins "None",
+  "Background graphics" on → save as ../liszkai-david-en-cv.pdf
+-->
+<style>
+  /* Name face: subset that only covers "Dávid Liszkai" — don't reuse it for other text. */
+  @font-face { font-family: 'CV Name'; src: url(fonts/cv-name-subset.ttf) format('truetype'); }
+  @font-face { font-family: 'Noto Sans'; font-weight: 400; src: url(fonts/noto-sans-latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Noto Sans'; font-weight: 400; src: url(fonts/noto-sans-latin-ext-400-normal.woff2) format('woff2');
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+  @font-face { font-family: 'Noto Sans'; font-weight: 800; src: url(fonts/noto-sans-latin-800-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Noto Sans'; font-weight: 800; src: url(fonts/noto-sans-latin-ext-800-normal.woff2) format('woff2');
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+  @font-face { font-family: 'Noto Sans'; font-weight: 900; src: url(fonts/noto-sans-latin-900-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Noto Sans'; font-weight: 900; src: url(fonts/noto-sans-latin-ext-900-normal.woff2) format('woff2');
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
+  :root {
+    --paper: #f9f8f6;
+    --ink: #28221b;
+    --ink-2: #373025;
+    --body: #575047;
+    --meta: #625a50;
+    --accent: #1f747a;
+    --accent-soft: #d6e9eb;
+    --rule: #e3dfd9;
+  }
+
+  @page { size: A4; margin: 30pt 0 26pt; background: #f9f8f6; }
+  @page :first { margin-top: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px; line-height: 1.55;
+    color: var(--body);
+    width: 794px; margin: 0 auto;
+    padding: 0 53px;
+  }
+
+  /* ── Header ── */
+  .head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 42px 0 22px;
+    border-bottom: 2px solid rgba(31,116,122,0.3);
+    margin-bottom: 20px;
+  }
+  .name { font-family: 'CV Name', serif; font-weight: 400; font-size: 41px; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
+  .title { font-size: 16px; font-weight: 800; color: var(--accent); margin-top: 4px; }
+  .contact { text-align: right; font-size: 11.7px; line-height: 2; color: var(--meta); padding-top: 2px; }
+  .contact a { color: inherit; text-decoration: none; }
+
+  /* ── Sections ── */
+  section { margin-bottom: 16px; }
+  h2 {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; font-variant-ligatures: none; font-kerning: none;
+    color: var(--ink); margin-bottom: 8px;
+    break-after: avoid;
+  }
+  h2 svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* ── Entries ── */
+  .entry { padding: 0 0 12px; }
+  .entry + .entry { border-top: 1px solid var(--rule); padding-top: 12px; }
+  .entry-head { break-inside: avoid; break-after: avoid; }
+  .entry h3 { font-size: 16px; font-weight: 900; color: var(--ink); line-height: 1.35; }
+  .where { font-size: 14px; color: var(--meta); }
+  .where .sep { margin: 0 8px; }
+  .date {
+    display: inline-block; margin: 8px 0 6px;
+    background: var(--accent-soft); color: var(--ink-2);
+    font-size: 12px; font-weight: 800; line-height: 1;
+    padding: 6px 9px; border-radius: 4px;
+  }
+
+  ul { list-style: none; }
+  li { position: relative; padding-left: 18px; margin: 3px 0; break-inside: avoid; }
+  li::before { content: ''; position: absolute; left: 0; top: 0.68em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  li b { font-weight: 800; color: var(--ink-2); }
+
+  .edu { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 3px 0 7px; break-inside: avoid; }
+  .edu h3 { font-size: 15px; font-weight: 900; color: var(--ink); line-height: 1.4; }
+  .edu .sub { font-size: 13px; color: var(--meta); line-height: 1.5; }
+  .edu .date { margin: 3px 0 0; flex-shrink: 0; }
+
+  .keep { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div>
+    <div class="name">Dávid Liszkai</div>
+    <div class="title">Test Manager</div>
+  </div>
+  <div class="contact">
+    <a href="mailto:liszkai_david@icloud.com">liszkai_david@icloud.com</a><br>
+    +36 30 413 7761<br>
+    Kiskőrös / Budapest<br>
+    <a href="https://www.linkedin.com/in/david-liszkai/">linkedin.com/in/david-liszkai/</a>
+  </div>
+</header>
+
+<section>
+  <h2><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</h2>
+  <p>
+    Test manager with 4+ years of experience across banking, SaaS, and enterprise environments.
+    At OTP Bank, owns QA across multiple squads in the Daily Banking tribe — regression strategy
+    in Xray, release readiness, risk reporting, and coordination between architects, product owners,
+    business analysts, and testers. Grew into the role from hands-on testing and still brings that
+    depth: end-to-end, API, UI, and backend testing across complex systems using REST/SOAP, PL/SQL,
+    Playwright, JMeter, RabbitMQ, and Kafka.
+  </p>
+</section>
+
+<section>
+  <h2><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></svg>Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Test Manager</h3>
+      <div class="where">OTP Bank<span class="sep">•</span>Budapest, Hungary</div>
+      <span class="date">Jul 2026 – Present</span>
+    </div>
+    <ul>
+      <li>Promoted to Test Manager after serving as acting test manager following the previous test manager's departure; own QA across multiple squads in the Daily Banking tribe.</li>
+      <li>Act as the main coordination point between architects, product owners, business analysts, and testers — planning testing, allocating work, and reporting progress, risks, and release readiness to management.</li>
+      <li>Consolidated testing across parallel projects into a single, coordinated QA process.</li>
+      <li>Designed an Xray regression model: one shared, label-filtered test set (domain, product type, execution type), a test plan per release cycle, and product-level test executions populated via JQL — replacing the earlier approach with a modular, automation-ready structure.</li>
+      <li>Customised Xray Document Generator report templates so every test run is reported with its own execution status and tester, and linked defects are filtered by release version — giving clearer release-readiness visibility.</li>
+      <li>Steer test automation toward API, web-service, and database-level coverage together with the automation engineers.</li>
+      <li>Selected by the Product Owner to lead a proof of concept for a different business area, coordinating 3 manual testers and 1 automation tester; reduced the suite from 75 to 30 high-value test cases, reported progress through Xray dashboards, and then took ownership of that area's ongoing regression testing.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Software Tester</h3>
+      <div class="where">OTP Bank<span class="sep">•</span>Budapest, Hungary</div>
+      <span class="date">Apr 2024 – Jun 2026</span>
+    </div>
+    <ul>
+      <li>Owned end-to-end testing for a large-scale card system replacement project across 3 go-live phases – covering core card lifecycle processes including issuance, activation, status updates, renewals, and replacements.</li>
+      <li>Led credit card testing within the squad, coordinating task allocation and tracking execution.</li>
+      <li>Contributed to the design and execution of a retail debit card test suite of nearly 1800 cases in Xray, including 320 manually executed test cases.</li>
+      <li>Performed REST/SOAP API testing, PL/SQL data validation, and JMeter load testing across card lifecycle flows, and supported pre-go-live pilot testing in a live branch environment.</li>
+      <li>Tested messaging system integrations by manually generating RabbitMQ messages and producing and validating Kafka topic messages, including authorization response verification.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Quality Assurance Associate</h3>
+      <div class="where">Kinsta<span class="sep">•</span>Remote</div>
+      <span class="date">Oct 2022 – Nov 2023</span>
+    </div>
+    <ul>
+      <li>Tested Kinsta's core platform across regression, smoke, acceptance, and UI test cycles, including GraphQL mutation testing via Apollo Studio.</li>
+      <li>Tested the MyKinsta dashboard redesign end-to-end, validating both functional behaviour and UI/UX changes across the new experience.</li>
+      <li>Coordinated bug triage and assignment across a 9-member QA team, escalating blockers to keep releases on track across distributed teams.</li>
+      <li>Tested an internally developed ERP platform with integrated chatbot functionality, covering functional and end-to-end user flows.</li>
+      <li>Set up and maintained Docker test environments across microservices, and handled pull request validation on GitHub.</li>
+      <li>Owned the release gate – verified that all quality criteria were met before each deployment.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Software Tester</h3>
+      <div class="where">BioSec Group<span class="sep">•</span>Budapest, Hungary</div>
+      <span class="date">Feb 2022 – Aug 2022</span>
+    </div>
+    <ul>
+      <li>Managed and wrote test cases using TestLink.</li>
+      <li>Performed E2E testing on desktop and physical devices.</li>
+      <li>Created QA notes and compiled testing guides using Confluence.</li>
+      <li>Detected and managed bugs in Jira.</li>
+      <li>Collaborated with customers on-site, including Groupama Arena, and via virtual machines.</li>
+      <li>Worked closely with developers through daily standups and bug analysis sessions.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>IT Support Specialist / Tester</h3>
+      <div class="where">TMX Mobile Solution<span class="sep">•</span>Budapest, Hungary</div>
+      <span class="date">Jan 2021 – Jan 2022</span>
+    </div>
+    <ul>
+      <li>Performed manual software testing and IT application support for the Vodafone Service System.</li>
+      <li>Managed and resolved issue tickets, identifying root causes using MySQL.</li>
+      <li>Contributed to functional testing and documentation for Vodafone support workflows.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Education</h2>
+  <div class="edu">
+    <div>
+      <h3>Projektcoach Consulting</h3>
+      <div class="sub">Business Analyst I. · Budapest, Hungary</div>
+    </div>
+    <span class="date">2021</span>
+  </div>
+  <div class="edu">
+    <div>
+      <h3>Masterfield Training Center</h3>
+      <div class="sub">Junior Software Testing Academy · Budapest, Hungary</div>
+    </div>
+    <span class="date">2020</span>
+  </div>
+  <div class="edu">
+    <div>
+      <h3>Petőfi Sándor Grammar School</h3>
+      <div class="sub">Matriculation Certificate · Kiskőrös, Hungary</div>
+    </div>
+    <span class="date">2006–2010</span>
+  </div>
+</section>
+
+<section>
+  <h2><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Skills Overview</h2>
+  <ul>
+    <li><b>Test management:</b> test strategy, test planning, regression strategy, release readiness, risk reporting, automation strategy, stakeholder coordination</li>
+    <li><b>Testing &amp; QA:</b> E2E testing, API testing, UI testing, backend testing, test design, data validation, load testing</li>
+    <li><b>Tools:</b> Xray (incl. Document Generator), Jira, Confluence, TestLink, Insomnia, Postman, SoapUI, Apollo Studio</li>
+    <li><b>Automation &amp; engineering:</b> Playwright, CI pipeline support, Docker, GitHub, PL/SQL, MySQL, JMeter, RabbitMQ, Kafka</li>
+    <li><b>Product &amp; collaboration:</b> banking/card systems, SaaS products, enterprise systems, bug triage, cross-functional coordination</li>
+  </ul>
+</section>
+
+<section class="keep">
+  <h2><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Languages</h2>
+  <p>English – B2</p>
+</section>
+
+<section class="keep">
+  <h2><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Personal Projects</h2>
+  <ul>
+    <li><b>Family Recipe App:</b> Private, iPhone-first PWA for the family, rebuilt from an Eleventy/Markdown prototype on React, TypeScript, and Cloudflare Workers + D1. Includes AI-assisted recipe import from text or screenshots, with a mandatory human review before anything is saved. Own the product decisions, backlog, and testing.</li>
+    <li><b>AI-assisted 'TestSuite Me' CV Builder:</b> Led requirements definition, prompt-driven iteration, QA validation, and deployment preparation for an AI-assisted web application prototype focused on ATS-optimised QA resumes.</li>
+  </ul>
+</section>
+
+</body>
+</html>
