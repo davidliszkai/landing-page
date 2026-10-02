@@ -29,3 +29,6 @@ npm-debug.log
 # Build output (if added later)
 dist/
 build/
+
+# Claude desktop app outputs
+Claude outputs/
